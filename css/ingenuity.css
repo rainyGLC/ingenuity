@@ -51,6 +51,13 @@ body{
 	border:4px solid #e2e2e2;
 	z-index: 2;
 }
+.mainer-container .fixed-top{
+	position:fixed;
+	top:0;
+	left:0;
+	width: 100%;
+	z-index: 9999;
+}
 .mainer-container:before{
 	content: '';
 	display: inline-block;
@@ -67,7 +74,6 @@ body{
 	border-bottom:2px dotted #e2e2e2;
 	text-align: center;
 	background:#fff;
-
 }
 .description-section .topic{
 	position: absolute;
@@ -75,7 +81,7 @@ body{
 	left:10px;
 	width: 60px;
 	height: 140px;
-	background:url(../img/topic.jpg) no-repeat center;
+	background:url(../img/topic.png) no-repeat center;
 }
 .description-container .dec-title{
 	height: 30px;
@@ -106,6 +112,14 @@ body{
 	height: 175px;
 	background:url(../img/title-bg.png);
 }
+.course-container .course-imgone{
+	position: absolute;
+	top: 10px;
+	left:10px;
+	width: 60px;
+	height: 175px;
+	background:url(../img/title-bgtwo.png);
+}
 .course-container .course-desc{
 	width: 512px;
 	height: 100px;
@@ -126,13 +140,6 @@ body{
 	padding-right:30px;
 	padding-left: 30px;
 }
-/*.preacher-container:after{
-	content: '';
-	display: inline-block;
-	margin-top: 20px;
-	background:url(../img/cborder.png) 0 0/936px 1px;
-}
-*/
 .preacher-title{
 	position: relative;
 	height: 60px;
@@ -203,7 +210,7 @@ body{
 	opacity: 1;
 }
 .introduction-line img{
-  margin-top: 40px;
+  margin-top:40px;
   width: 936px;
   height: 20px;
 }
@@ -302,7 +309,6 @@ body{
 	background:#ebebeb;
 	text-decoration: none;
 }
-
 .bless-card{
 	position: relative;
 	margin-top: 50px;
@@ -311,50 +317,49 @@ body{
 	overflow: hidden;
 }
 .bless-card .bless-item{
+	position: absolute;
+	top:20px;
+	left:30px;
 	padding:15px 15px 0 15px;
 	width: 320px;
 	height: 158px;
 	cursor: pointer;
-	background:rgba(255,240,240,1.73);
+	/*background:rgba(255,240,240,1.73);*/
+	background: #fdfbe9;
 }
-.bless-card .one{
+.first.active{
+	display:none;
+}
+.bless-item .bless-close{
 	position: absolute;
-	top:20px;
-	left:30px;
+	z-index: 3;
+	top:-21px;
+	right: 12px;
+	width: 15px;
+	height: 20px;
 }
-.bless-card .two{
+.bless-item .bless-close.active{
+	display: none;
+}
+.bless-card .bless-item:before{
+	content: '';
 	position: absolute;
-	top:60px;
-	left:120px;
+	display: inline-block;
+	top:-20px;
+	left:-14px;
+	width: 44px;
+	height: 39px;
+	background: url(../img/left.png) center center no-repeat;
 }
-.bless-card .three{
+.bless-card .bless-item:after{
+	content: '';
 	position: absolute;
-	top:120px;
-	left:160px;
-	background:rgba(215,235,232,1.62);
-}
-.bless-card .four{
-	position: absolute;
-	top:160px;
-	left:200px;
-	background:rgba(215,235,232,1.62);
-}
-.bless-card .six{
-	position: absolute;
-	top:200px;
-	left:300px;
-	background:rgba(215,235,232,1.62);
-}
-.bless-item .bless-avator{
-	color:#000;
-	font-size: 16px;
-	width:290px;
-}
-.bless-item .bless-desc{
-	margin-top: 5px;
-	line-height: 25px;
-	font-size: 14px;
-	color: #000;
+	display: inline-block;
+	top:-18px;
+	right: -42px;
+	width: 100px;
+	height: 43px;
+	background:url(../img/right.png) center center no-repeat;
 }
 .mainer-container:after{
 	content: '';
@@ -383,13 +388,15 @@ footer{
 	box-shadow: -3px 6px 4px -3px;
 }
 .fixed-nav{
-	position: absolute;
-	top:270px;
-	right: -117px;
+	position: fixed;
+	z-index: 3;
+	top:585px;
+	right: 338px;
 	width:80px;
 	height: 317px;
 	border:1px solid #e2e2e2;
 	background:#fff;
+	cursor: pointer;
 }
 .fixed-nav .nav-list:before{
 	content: '';
