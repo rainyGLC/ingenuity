@@ -396,7 +396,7 @@ footer{
 .fixed-nav.fixed-top{
   position:fixed;
   z-index: 9999;
-  top: 0px;
+  top: 32px;
   right: 338px;
   width: 80px;
 }

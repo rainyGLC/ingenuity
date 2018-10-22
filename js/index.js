@@ -51,7 +51,6 @@ $(function(){
       cardPage.data.item = $(this);
       cardPage.data.zindex ++
       $(this).css({ 'z-index': cardPage.data.zindex })
-      // console.log(cardPage.data)
     },
     mousemoveEvent:function(event){ 
       let flag =cardPage.data.flag;
@@ -79,16 +78,11 @@ $(function(){
       let itemHeight      = 158;
       let paddingoffset   = 50;
       let maxWidth        = containerWidth - itemWidth - paddingoffset;
-      //console.log(maxWidth);//622
       let maxHeight       = containerHeight - itemHeight -paddingoffset; 
-      //console.log(maxHeight);//368
-      //拼接DOM结构
       let html = '';
       cardList.forEach(function(card,index){
         let randomTop = cardPage.randomBetween(paddingoffset,maxHeight);
-        //console.log(randomTop);
         let randomLeft = cardPage.randomBetween(paddingoffset,maxWidth);
-        //console.log(randomLeft);
         let tmp = `<div class = "bless-item" style="
                  background:${background[index%background.length]};
                  top:${randomTop}px;
@@ -100,7 +94,6 @@ $(function(){
                 </p>
                  </div>`;
             html += tmp
-        //console.log(html);
       })
       $('.bless-card').append(html);
       cardPage.data.zindex = cardList.length;
@@ -122,7 +115,6 @@ $(function(){
         let randomcolor     = Math.floor(Math.random() * 10);
         let background      = $(color).eq(randomcolor)[0];
         console.log(background);
-        // console.log(maxHeight);
         let html = `<div class = "bless-item" style="z-index:${index+1};
                 background:${background};
                 top:${randomTop}px;
@@ -131,7 +123,6 @@ $(function(){
                 <p class="bless-avator">小兔兔说：</p>
                 <p class ="bless-desc">${value}</p>
                 </div>`;
-        // console.log(html);
         $('.bless-card').append(html);
       }
     },  
@@ -154,16 +145,12 @@ $(function(){
       }
     })
     cardPage.data.sectionOffset = sectionOffset;
-    //console.log(sectionOffset);
     },
     goScroll:function(){
       let klass = $(this).data('nav');
       console.log(klass);
       let borderHeight = cardPage.data.borderHeight;
-      //console.log(borderHeight);//19
-      //计算要滚动到的实际高度，为要跳转的高度 - 固定卷轴的高度差
       let top = $(`.${klass}`).offset().top - borderHeight;
-      //console.log(top);
       $("html,body").animate({
         scrollTop:top
       },500,function(){
@@ -181,29 +168,20 @@ $(function(){
       }
     },
     actionScrollEvent:function(){
-      //获取页面当前滚动的高度
       let scrollTop = $(window).scrollTop();
-      //console.log(scrollTop);
       cardPage.data.flag = false;
-      //右导航定位
       cardPage.toggleNavigatorFixed(scrollTop);
     },
     toggleNavigatorFixed:function(scrollTop){
       //右导航到顶部浏览器的距离
       let navOffset = $('.fixed-nav').offset().top;
-      //let sectionOffset = $('.section-1').offset().top;
-      // console.log(sectionOffset);
-      //console.log(navOffset);//585
       let shouldfixedTop = scrollTop > cardPage.data.headerHeight;
-      //console.log(shouldfixedTop);
       let hasfixedTop = $('.fixed-nav').hasClass('fixed-top');
       if(shouldfixedTop && !hasfixedTop){
         $('.fixed-nav').addClass('fixed-top');
       }else if(!shouldfixedTop && hasfixedTop){
         $('.fixed-nav').removeClass('fixed-top');
       }
-
-      console.log('ooo')
     },
   }
   cardPage.init();
