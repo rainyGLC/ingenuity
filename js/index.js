@@ -202,6 +202,8 @@ $(function(){
       }else if(!shouldfixedTop && hasfixedTop){
         $('.fixed-nav').removeClass('fixed-top');
       }
+
+      console.log('ooo')
     },
   }
   cardPage.init();
